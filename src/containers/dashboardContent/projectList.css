@@ -1,0 +1,15 @@
+.mapDiv {
+  box-sizing: border-box;
+  background-color: wheat;
+  border-radius: 5%;
+  padding: 5%;
+  height: 30%;
+}
+
+.divContainer {
+  height: 90vh;
+  width: 50vh;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}

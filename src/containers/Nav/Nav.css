@@ -1,0 +1,19 @@
+/* agar in gernal p tag modfy kia to sare a tags par styling lagegi , HTML wale se leke App component wale tak ko */
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(43, 27, 27);
+  color: aliceblue;
+}
+
+.nav ul {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+  align-items: center;
+}
+.nav li {
+  list-style-type: none;
+}
