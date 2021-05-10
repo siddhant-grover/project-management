@@ -21,8 +21,7 @@ function projectList(props) {
        <div className="divContainer">
            {arr.map((item)=>{
                return (
-                
-                 
+                   
                     <div className="mapDiv">
                         <Link to={`/project/${item.id}`} style={{textDecoration:'none',color:'inherit'}}>  
                         <p>{item.title}</p>

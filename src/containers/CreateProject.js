@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import {connect} from 'react-redux'
+import { addProject } from '../redux/actions/projectAction';
 
 function CreateProject(props) {
 
-const [state,setState]=useState({
+const [state1,setState]=useState({
     projectTitle:"",
     projectContent:""
 });
@@ -27,14 +29,30 @@ function handelOnChange(e){
                 </div>
                 <button onClick={(e)=>{
                     e.preventDefault()
-                    console.log(state)
+                    console.log(state1)
+                    props.addProject(state1)
 
                 }}>Create</button>
             </form>
-            
+            <p>{JSON.stringify(props.projects)}</p>
         </div>
     );
 }
 
-export default CreateProject;
+const mapStateToProps =(state)=>{
+    return{
+        projects:state.projects
+    }
+    
+}
+const mapDispatchToProps =(dispatch)=>{
+    return{
+       addProject: (project)=>{
+           dispatch(addProject(project))
+       } 
+    }
+
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(CreateProject);
 
