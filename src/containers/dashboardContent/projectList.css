@@ -4,11 +4,12 @@
   border-radius: 5%;
   padding: 5%;
   height: 30%;
+  margin: 20px;
 }
 
 .divContainer {
-  height: 90vh;
-  width: 50vh;
+  height: 90%;
+  width: 40%;
   display: flex;
   justify-content: space-around;
   flex-direction: column;

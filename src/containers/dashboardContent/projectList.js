@@ -34,6 +34,36 @@ function projectList(props) {
                          
                )
            })}
+           {arr.map((item)=>{
+               return (
+                
+                 
+                    <div className="mapDiv">
+                        <Link to={`/project/${item.id}`} style={{textDecoration:'none',color:'inherit'}}>  
+                        <p>{item.title}</p>
+                        <p>Posted By {item.Name}</p>
+                        <p>Today at {formatAMPM()}</p>
+                        </Link>
+                    </div>
+                   
+                         
+               )
+           })}
+           {arr.map((item)=>{
+               return (
+                
+                 
+                    <div className="mapDiv">
+                        <Link to={`/project/${item.id}`} style={{textDecoration:'none',color:'inherit'}}>  
+                        <p>{item.title}</p>
+                        <p>Posted By {item.Name}</p>
+                        <p>Today at {formatAMPM()}</p>
+                        </Link>
+                    </div>
+                   
+                         
+               )
+           })}
        </div>
        
     

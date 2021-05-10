@@ -6,7 +6,7 @@ function ProjectDetails(props) {
    let arr =[{title:"title",content:"constent",author:"Name",date:'random for now'}] //selected by incoming id 
     return (
         <div>
-            <h2>{arr[0].title}</h2>
+            <h2>{arr[0].title} id:{id}</h2>
             <p>{arr[0].content}</p>
             <p>{arr[0].date}</p>
 

@@ -29,7 +29,7 @@ function handelOnChange(e){
                     e.preventDefault()
                     console.log(state)
 
-                }}>Submit</button>
+                }}>Create</button>
             </form>
             
         </div>
