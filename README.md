@@ -1,3 +1,9 @@
+**single action/reducer ,simple store configuration without anymiddleware, storing newly added project via form(addProject)inputs to Redux**
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
