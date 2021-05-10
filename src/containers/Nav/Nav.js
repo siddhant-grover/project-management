@@ -11,7 +11,7 @@ import SignedOutLinks from '../../components/signedOutLinks'
         <>
         <nav className="nav ">
             <div><NavLink to="/" style={{textDecoration:'none',color:'aqua'}}>Project Management</NavLink></div>
-          {true ?<SignedInLinks/>:<SignedOutLinks/>}
+          <SignedInLinks/><SignedOutLinks/>
         </nav>
         </>
     )
