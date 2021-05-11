@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import {loadProjects} from '../redux/actions/projectAction'
 import ProjectList from './dashboardContent/projectList'
 import Notification from './dashboardContent/notification'
 import './Dashboard.css'
 import {connect} from 'react-redux'
 function Dashboard(props){
+
+    useEffect(()=>{
+        if(props.projects.length===0){
+        //props.loadProjects()
+        console.log(props.loadProjects())
+        }
+    },[])
     
     return(
         <>
@@ -21,7 +29,7 @@ return{
 }
 let mapDispatchToProps=(dispatch)=>{
 return{
-
+    loadProjects: ()=>{dispatch(loadProjects())}
 }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Dashboard)
