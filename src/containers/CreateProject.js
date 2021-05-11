@@ -5,8 +5,8 @@ import { addProject } from '../redux/actions/projectAction';
 function CreateProject(props) {
 
 const [state1,setState]=useState({
-    projectTitle:"",
-    projectContent:""
+    title:"",
+    content:""
 });
 
 function handelOnChange(e){
@@ -21,11 +21,11 @@ function handelOnChange(e){
             <div>Create Project</div>
             <div>
                 <label htmlFor="projectTitle">Project Title</label>
-                    <input type="text" id="projectTitle" onChange={handelOnChange}/>
+                    <input type="text" id="title" onChange={handelOnChange}/>
                     </div>
             <div>
                 <label htmlFor="projectContent">Project Content</label>
-                <input type="text" id="projectContent"onChange={handelOnChange} />
+                <input type="text" id="content"onChange={handelOnChange} />
                 </div>
                 <button onClick={(e)=>{
                     e.preventDefault()
@@ -35,6 +35,7 @@ function handelOnChange(e){
                 }}>Create</button>
             </form>
             <p>{JSON.stringify(props.projects)}</p>
+            
         </div>
     );
 }

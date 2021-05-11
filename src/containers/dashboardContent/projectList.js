@@ -1,8 +1,9 @@
 import React from 'react';
 import './projectList.css';
 import {Link} from 'react-router-dom'
+import ProjectDetails from'../ProjectDetails'
 function projectList(props) {
-    let arr=[{id:1,title:"mario hunt",Name:"Mario Plumber"},{id:2,title:"mario hunt",Name:"Mario Plumber"}]
+   // let arr=[{id:1,title:"mario hunt",Name:"Mario Plumber"},{id:2,title:"mario hunt",Name:"Mario Plumber"}]
 
     function formatAMPM() {
         let date=new Date()
@@ -19,10 +20,10 @@ function projectList(props) {
     
     return (
        <div className="divContainer">
-           {arr.map((item)=>{
+           {props.Data&&props.Data.map((item)=>{
                return (
                    
-                    <div className="mapDiv">
+                    <div className="mapDiv" key={item.id}>
                         <Link to={`/project/${item.id}`} style={{textDecoration:'none',color:'inherit'}}>  
                         <p>{item.title}</p>
                         <p>Posted By {item.Name}</p>
@@ -33,36 +34,7 @@ function projectList(props) {
                          
                )
            })}
-           {arr.map((item)=>{
-               return (
-                
-                 
-                    <div className="mapDiv">
-                        <Link to={`/project/${item.id}`} style={{textDecoration:'none',color:'inherit'}}>  
-                        <p>{item.title}</p>
-                        <p>Posted By {item.Name}</p>
-                        <p>Today at {formatAMPM()}</p>
-                        </Link>
-                    </div>
-                   
-                         
-               )
-           })}
-           {arr.map((item)=>{
-               return (
-                
-                 
-                    <div className="mapDiv">
-                        <Link to={`/project/${item.id}`} style={{textDecoration:'none',color:'inherit'}}>  
-                        <p>{item.title}</p>
-                        <p>Posted By {item.Name}</p>
-                        <p>Today at {formatAMPM()}</p>
-                        </Link>
-                    </div>
-                   
-                         
-               )
-           })}
+           
        </div>
        
     

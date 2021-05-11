@@ -2,6 +2,6 @@ import projects from './projectReducer';
 import {combineReducers} from "redux";
 
 const rootReducer = combineReducers({
-    projects
+    projects:projects
 })
-export default rootReducer;
+export default rootReducer; 

@@ -2,14 +2,26 @@ import React from 'react'
 import ProjectList from './dashboardContent/projectList'
 import Notification from './dashboardContent/notification'
 import './Dashboard.css'
-function Dashboard(){
+import {connect} from 'react-redux'
+function Dashboard(props){
+    
     return(
         <>
         <div className="dash">
-        <ProjectList/>
+        <ProjectList Data={props.projects}/>
         <Notification/>
         </div>
         </>
     )
 }
-export default Dashboard
+let mapStateToProps =(state)=>{
+return{
+    projects:state.projects  //component will rerender if 'projects' part of state changes
+}
+}
+let mapDispatchToProps=(dispatch)=>{
+return{
+
+}
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Dashboard)
