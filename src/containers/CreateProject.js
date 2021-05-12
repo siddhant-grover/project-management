@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {connect} from 'react-redux'
-import { addProject } from '../redux/actions/projectAction';
+import { addProject, loadProjects } from '../redux/actions/projectAction';
 
 function CreateProject(props) {
 
@@ -9,6 +9,10 @@ const [state1,setState]=useState({
     content:""
 });
 
+useEffect(()=>{
+    if(props.projects.length===0)
+    props.loadProjects()
+},[props])
 function handelOnChange(e){
     setState((prev)=>{
         return {...prev,[e.target.id]:e.target.value}
@@ -50,9 +54,11 @@ const mapDispatchToProps =(dispatch)=>{
     return{
        addProject: (project)=>{
            dispatch(addProject(project))
-       } 
+       },
+       loadProjects : ()=>{
+           dispatch(loadProjects())
     }
-
+    }
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(CreateProject);

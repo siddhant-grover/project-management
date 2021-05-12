@@ -1,18 +1,37 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useParams } from 'react-router';
 
+import firebase from "../config/fbConfig"
 function ProjectDetails(props) {
-    let {id} = useParams();
-   let arr =[{title:"title",content:"constent",author:"Name",date:'random for now'}] //selected by incoming id 
-   console.log(props.project)
+    
+    let id = useRef(useParams().id);
+   
+    let item = useRef({})
+   useEffect(()=>{
+    item.current =  firebase.firestore().collection('Projects').doc(id.current).get()
+        .then(snapshot=>snapshot.data())
+   },[])
+            
+   
+   
+  
     return (
+      
+ 
         <div>
-            <h2>{arr[0].title} id:{id}</h2>
-            <p>{arr[0].content}</p>
-            <p>{arr[0].date}</p>
+            <h2>{item.current.title} id:{id.current}</h2>
+            <p>Author:{item.current.authorLastName} {item.current.authorFirstName}</p>
+            <p>{item.current.content}</p>
+            <p>Date : 24 july 2021</p>
 
         </div>
+        
+       
+        
+        
     );
 }
+
+    
 
 export default ProjectDetails;

@@ -1,22 +1,12 @@
 import React from 'react';
 import './projectList.css';
 import {Link} from 'react-router-dom'
-import ProjectDetails from'../ProjectDetails'
+
 function projectList(props) {
    // let arr=[{id:1,title:"mario hunt",Name:"Mario Plumber"},{id:2,title:"mario hunt",Name:"Mario Plumber"}]
 
-    function formatAMPM() {
-        let date=new Date()
-        var hours = date.getHours();
-        var minutes = date.getMinutes();
-        var ampm = hours >= 12 ? 'pm' : 'am';
-        hours = hours % 12;
-        hours = hours ? hours : 12; // the hour '0' should be '12'
-        minutes = minutes < 10 ? '0'+minutes : minutes;
-        var strTime = hours + ':' + minutes + ' ' + ampm;
-        return strTime;
-      }
-      
+   
+      //console.log(props.Data)
     
     return (
        <div className="divContainer">
@@ -26,8 +16,8 @@ function projectList(props) {
                     <div className="mapDiv" key={item.id}>
                         <Link to={`/project/${item.id}`} style={{textDecoration:'none',color:'inherit'}}>  
                         <p>{item.title}</p>
-                        <p>Posted By {item.Name}</p>
-                        <p>Today at {formatAMPM()}</p>
+                        <p>Posted By {item.authorFirstName} {item.authorLastName}</p>
+                        <p>Today at 3rd Sep 2021</p>
                         </Link>
                     </div>
                    
