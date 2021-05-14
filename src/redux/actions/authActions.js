@@ -15,6 +15,7 @@ export function signIn(creds){
     ).then((userCreds)=>{
         console.log(userCreds)
         dispatch({type:'LOGIN_SUCCESS'})
+        dispatch(profileLoadedSuccess())
     })
     .catch((err)=>{
         console.log("sorry matey in actions")
