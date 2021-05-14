@@ -9,7 +9,7 @@ function Dashboard(props){
     useEffect(()=>{
         if(props.projects.length===0){
         //props.loadProjects()
-        console.log('f')
+        console.log('dashboard ka USEEffect')
         props.loadProjects()
         }
     },[props])

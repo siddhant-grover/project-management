@@ -9,9 +9,10 @@ import SignedOutLinks from '../../components/signedOutLinks'
 
 function Nav(props){
 useEffect(()=>{
+  console.log("Nav UseEFFECT")
   props.authChange()
-  console.log("P")
-},[props])
+  
+},[])
 
     return(
         <>
@@ -23,7 +24,7 @@ useEffect(()=>{
     )
     }
 function mapStateToProps(state){
-    console.log(state) //prints whenever state changes + 1st time on 1st render(the initial state)//but props wont change as nothing returned in the object below
+    //console.log(state) //prints whenever state changes + 1st time on 1st render(the initial state)//but props wont change as nothing returned in the object below
     return{
 
     }
