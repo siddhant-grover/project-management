@@ -23,7 +23,7 @@ useEffect(()=>{
     )
     }
 function mapStateToProps(state){
-    console.log(state) //prints whenever state changes + 1st time on 1st render(the initial state)
+    console.log(state) //prints whenever state changes + 1st time on 1st render(the initial state)//but props wont change as nothing returned in the object below
     return{
 
     }
