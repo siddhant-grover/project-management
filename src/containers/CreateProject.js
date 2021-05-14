@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import {connect} from 'react-redux'
 import { addProject, loadProjects } from '../redux/actions/projectAction';
-
+import {useHistory} from 'react-router-dom'
 function CreateProject(props) {
-
+let history = useHistory()
 const [state1,setState]=useState({
     title:"",
     content:""
@@ -17,6 +17,11 @@ function handelOnChange(e){
     setState((prev)=>{
         return {...prev,[e.target.id]:e.target.value}
     })
+}
+
+if(!props.profileLoaded){
+    history.push('/signin') //or use Redirect
+    return (<></>)
 }
 
     return (
@@ -46,7 +51,8 @@ function handelOnChange(e){
 
 const mapStateToProps =(state)=>{
     return{
-        projects:state.projects
+        projects:state.projects,
+        profileLoaded:state.profileLoaded
     }
     
 }

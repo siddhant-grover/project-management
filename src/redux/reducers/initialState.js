@@ -4,7 +4,7 @@ let initialState ={
         // {id:'2',title:'title2',content:'random content2'},
         // {id:'3',title:'title3',content:'random content3'}
     ],
-    profileLoaded:false,
+    profileLoaded:null,
     auth:{authError:null}
 
 }

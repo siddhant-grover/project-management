@@ -52,7 +52,7 @@ export function logout(){
     firebase.auth().signOut()
     .then(()=>{
         console.log("logOut")
-        
+        dispatch({type:'SIGN_OUT_SUCCESS'})
     })
     .catch((err)=>{
         //error

@@ -4,8 +4,11 @@ import ProjectList from './dashboardContent/projectList'
 import Notification from './dashboardContent/notification'
 import './Dashboard.css'
 import {connect} from 'react-redux'
-function Dashboard(props){
 
+import {useHistory} from 'react-router-dom'
+
+function Dashboard(props){
+let history = useHistory()
     useEffect(()=>{
         if(props.projects.length===0){
         //props.loadProjects()
@@ -13,7 +16,10 @@ function Dashboard(props){
         props.loadProjects()
         }
     },[props])
-    
+    if(!props.profileLoaded){
+        history.push('/signin') //or use Redirect
+        return (<></>)
+    }
     return(
         <>
         <div className="dash">
@@ -25,7 +31,8 @@ function Dashboard(props){
 }
 let mapStateToProps =(state)=>{
 return{
-    projects:state.projects  //component will rerender if 'projects' part of state changes
+    projects:state.projects,  //component will rerender if 'projects' part of state changes
+    profileLoaded:state.profileLoaded
 }
 }
 let mapDispatchToProps=(dispatch)=>{

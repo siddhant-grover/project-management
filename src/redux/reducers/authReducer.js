@@ -5,6 +5,10 @@ import initialState from './initialState'
             return {...state,authError:null};
         case 'LOGIN_ERROR':
         return {...state,authError:'Error in SignIN '}
+    
+        case 'SIGN_OUT_SUCCESS':
+            console.log('signout')
+            return state;
         default:
             return state;
     }
