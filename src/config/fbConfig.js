@@ -14,7 +14,7 @@ import 'firebase/auth'
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);//react project connect to our firebase project 
-  firebase.firestore().settings({timestampsInSnapshots:true}) // just an update 
+  firebase.firestore().settings({timestampsInSnapshots:true}) // just an update , how database works with timestamps
  
   export default firebase; //inside all the places of our project we can import this and use this to ineract with our firebase project 
   

@@ -1,3 +1,7 @@
+in our app state we created 2 reducers -> profileLoaded:profileLoaded,
+-> auth:authReducer , as one tells if profile is loaded or not so according to that we display our landing page,
+2nd tells if the specific login request(that we fill in the form ) fails and according to that we update the UI
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

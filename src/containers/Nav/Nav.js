@@ -1,12 +1,18 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import './Nav.css'
 import {NavLink} from 'react-router-dom'
-
+import {connect} from 'react-redux'
+import{authChange} from '../../redux/actions/authActions'
 import SignedInLinks from '../../components/signedInLinks'
 import SignedOutLinks from '../../components/signedOutLinks'
 
- function Nav(){
+function Nav(props){
+useEffect(()=>{
+  props.authChange()
+  console.log("P")
+},[props])
+
     return(
         <>
         <nav className="nav ">
@@ -15,6 +21,19 @@ import SignedOutLinks from '../../components/signedOutLinks'
         </nav>
         </>
     )
+    }
+function mapStateToProps(state){
+    console.log(state) //prints whenever state changes + 1st time on 1st render(the initial state)
+    return{
+
+    }
+}
+function mapDispatchToProps(dispatch){
+return {
+  authChange:()=>{dispatch(authChange())}
+}
 }
 
-export default Nav;
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Nav);
