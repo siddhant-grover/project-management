@@ -12,17 +12,18 @@ const [state1,setState]=useState({
 useEffect(()=>{
     if(props.projects.length===0)
     props.loadProjects()
-},[props])
+   
+},[])
 function handelOnChange(e){
     setState((prev)=>{
         return {...prev,[e.target.id]:e.target.value}
     })
 }
 
-if(!props.profileLoaded){
-    history.push('/signin') //or use Redirect
-    return (<></>)
-}
+// if(!props.profileLoaded){
+//     history.push('/signin') //or use Redirect
+//     return (<></>)
+// }
 
     return (
         <div>

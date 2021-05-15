@@ -59,4 +59,31 @@ export function logout(){
     })
 }
 }
+export function signUp(newUser){
+    return function(dispatch,getState){
+    firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password) //signed up a new user 
+        .then(usersCreds=>{
+            if(usersCreds.user){
+                console.log("READ "+JSON.stringify(usersCreds.user))
+               return firebase.firestore().collection('Users').doc(usersCreds.user.uid).set({ //now we wanna store some additional info ,that auth service dont store for us ,usig doc we set id of the added doc to uid of the signedUp user 
+                    firstName:newUser.firstName,
+                    lastName:newUser.lastName,
+                    initials:newUser.firstName[0]+newUser.lastName[0]
+                  
+                })
+                // dispatch({type:'SIGNUP_SUCCESS'}) 
+            }
+        })
+        .then(()=>{ //upar returned promise pe .then() , but koi value nahi mili .set ke resolve pe 
+            console.log("success in")
+            dispatch({type:'SIGNUP_SUCCESS'}) 
+        })
+        .catch((err)=>{
+            console.log(err.message)
+            dispatch({type:'SIGNUP_ERROR',err})
+        })
+
+    }
+}
+
 

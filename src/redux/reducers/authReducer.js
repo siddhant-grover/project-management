@@ -9,6 +9,12 @@ import initialState from './initialState'
         case 'SIGN_OUT_SUCCESS':
             console.log('signout')
             return state;
+        case 'SIGNUP_SUCCESS':
+            console.log('sigUP SUCCESS')
+            return {...state, authError:null};
+        case 'SIGNUP_ERROR':
+            console.log('SIGN UP ERORR')
+            return {...state, authError:action.err.message};
         default:
             return state;
     }

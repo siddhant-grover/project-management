@@ -8,7 +8,7 @@ export default function projectReducer(state=initialState.projects,action){
             console.log('create project error',action.error);
             return state;
         case 'LOAD_PROJECTS':
-            return [...state,...action.projects]
+            return action.projects
         
         default:
             return state;
