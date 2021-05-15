@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect ,useRef} from 'react'
 import {loadProjects} from '../redux/actions/projectAction'
 import ProjectList from './dashboardContent/projectList'
 import Notification from './dashboardContent/notification'
@@ -8,15 +8,16 @@ import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 
 function Dashboard(props){
-//let history = useHistory()
+let ref = useRef()
+    ref.current = {length:props.projects.length,load:props.loadProjects}
     useEffect(()=>{
-        if(props.projects.length===0){
-        //props.loadProjects()
+        if(ref.current.length===0){
+        
         console.log('dashboard ka USEEffect')
-        props.loadProjects()
+        ref.current.load()
         }
-        alert("h")
-    },[props])
+        
+    },[])
    
     return(
         <>

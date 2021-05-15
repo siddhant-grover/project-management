@@ -1,18 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {connect} from 'react-redux'
 import { addProject, loadProjects } from '../redux/actions/projectAction';
-import {useHistory} from 'react-router-dom'
+
 function CreateProject(props) {
-let history = useHistory()
+
+
 const [state1,setState]=useState({
     title:"",
     content:""
 });
 
+let ref = useRef();
+ref.current = { load:props.loadProjects , length:props.projects.length}
+
+
 useEffect(()=>{
-    if(props.projects.length===0)
-    props.loadProjects()
-   
+    if(ref.current.length===0){
+    ref.current.load()
+    }
+   console.log(ref.current.length)
 },[])
 function handelOnChange(e){
     setState((prev)=>{
@@ -69,4 +75,10 @@ const mapDispatchToProps =(dispatch)=>{
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(CreateProject);
+
+
+
+
+
+
 
