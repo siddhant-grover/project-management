@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router';
-
+import moment from 'moment'
 import firebase from "../config/fbConfig"
 function ProjectDetails(props) {
     
@@ -25,7 +25,7 @@ function ProjectDetails(props) {
                     <h2>{item.title} id:{id.current}</h2>
                     <p>Author:{item.authorLastName} {item.authorFirstName}</p>
                     <p>{item.content}</p>
-                    <p>Date : 24 july 2021</p>
+                    <p>{moment(new Date(item.createdAt)).calendar()}</p>
 
                 </div>
         )

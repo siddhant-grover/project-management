@@ -1,7 +1,7 @@
 import React from 'react';
 import './projectList.css';
 import {Link} from 'react-router-dom'
-
+import moment from 'moment'
 function projectList(props) {
    // let arr=[{id:1,title:"mario hunt",Name:"Mario Plumber"},{id:2,title:"mario hunt",Name:"Mario Plumber"}]
 
@@ -17,7 +17,7 @@ function projectList(props) {
                         <Link to={`/project/${item.id}`} style={{textDecoration:'none',color:'inherit'}}>  
                         <p>{item.title}</p>
                         <p>Posted By {item.authorFirstName} {item.authorLastName}</p>
-                        <p>Today at 3rd Sep 2021</p>
+                        <p>{moment(new Date(item.createdAt)).calendar()}</p>
                         </Link>
                     </div>
                    

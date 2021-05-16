@@ -8,7 +8,7 @@ export function addProject(project){
             authorFirstName:'Sid',
             authorLastName:'Grover',
             authorId:'123',
-            createdAt:new Date()
+            createdAt:Date.now()
 
         }
         firebase.firestore().collection('Projects').add({ //Projects collection in our DB , we pass an object to add (this obj represents a document that we will be adding to that collection)
