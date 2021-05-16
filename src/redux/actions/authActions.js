@@ -55,6 +55,8 @@ export function logout(){
         console.log("logOut")
         localStorage.removeItem("uid")
         localStorage.removeItem("initials")
+        localStorage.removeItem("lastName")
+        localStorage.removeItem("firstName")
         dispatch({type:'SIGN_OUT_SUCCESS'})
     })
     .catch((err)=>{
@@ -90,7 +92,7 @@ export function signUp(newUser){
     }
 }
 
-export function getInitials(){
+export function getCurrentUserData(){//before it was named initials 
     return (dispatch)=>{
         //if(localStorage.getItem("uid")){
         return firebase.firestore().collection('Users').doc(localStorage.getItem('uid')).get()  //make sure to return this if you want .then chaining in signedInLinks or wherever getInitials will be dispatched in Object syntax
@@ -98,6 +100,8 @@ export function getInitials(){
             console.log("doc.data()")
             console.log(doc.data().initials)
             //dispatch({type:'INITIALS',initials:doc.data().initials})
+            localStorage.setItem("firstName",doc.data().firstName)
+            localStorage.setItem("lastName",doc.data().lastName)
             localStorage.setItem("initials",doc.data().initials)
             return "resp silly goof"// will be recived as a resolve in .then chaining in signedInLinks
         }).catch(err=>{
@@ -106,4 +110,5 @@ export function getInitials(){
         
     }
 }
+
 
