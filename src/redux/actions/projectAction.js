@@ -32,7 +32,9 @@ export function loadProjects(){
     items.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
             projects = [...projects,{id:doc.id,...doc.data()}]
-    //     console.log(projects);
+            console.log("projects")
+         console.log(projects);
+
 
     });
     dispatch({type:'LOAD_PROJECTS',projects:projects})

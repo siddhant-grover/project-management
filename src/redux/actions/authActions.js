@@ -14,7 +14,8 @@ export function signIn(creds){
         creds.email,creds.password
     ).then((userCreds)=>{
         console.log('login ka success')
-        //console.log(userCreds)
+        console.log(userCreds.user)
+        localStorage.setItem("uid",userCreds.user.uid)
         dispatch({type:'LOGIN_SUCCESS'})
         
     })
@@ -52,6 +53,8 @@ export function logout(){
     firebase.auth().signOut()
     .then(()=>{
         console.log("logOut")
+        localStorage.removeItem("uid")
+        localStorage.removeItem("initials")
         dispatch({type:'SIGN_OUT_SUCCESS'})
     })
     .catch((err)=>{
@@ -64,7 +67,8 @@ export function signUp(newUser){
     firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password) //signed up a new user 
         .then(usersCreds=>{
             if(usersCreds.user){
-                console.log("READ "+JSON.stringify(usersCreds.user))
+                console.log("READ "+JSON.stringify(usersCreds.user.uid))
+                localStorage.setItem("uid",usersCreds.user.uid)
                return firebase.firestore().collection('Users').doc(usersCreds.user.uid).set({ //now we wanna store some additional info ,that auth service dont store for us ,usig doc we set id of the added doc to uid of the signedUp user 
                     firstName:newUser.firstName,
                     lastName:newUser.lastName,
@@ -86,4 +90,20 @@ export function signUp(newUser){
     }
 }
 
+export function getInitials(){
+    return (dispatch)=>{
+        //if(localStorage.getItem("uid")){
+        return firebase.firestore().collection('Users').doc(localStorage.getItem('uid')).get()  //make sure to return this if you want .then chaining in signedInLinks or wherever getInitials will be dispatched in Object syntax
+        .then((doc)=>{
+            console.log("doc.data()")
+            console.log(doc.data().initials)
+            //dispatch({type:'INITIALS',initials:doc.data().initials})
+            localStorage.setItem("initials",doc.data().initials)
+            return "resp silly goof"// will be recived as a resolve in .then chaining in signedInLinks
+        }).catch(err=>{
+            throw err
+        })
+        
+    }
+}
 
