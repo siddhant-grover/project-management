@@ -5,8 +5,8 @@ export function addProject(project){
         //const firestore = getFirestore();//refrence to our firestore db
         let projectPassed = { //Projects collection in our DB , we pass an object to add (this obj represents a document that we will be adding to that collection)
             ...project,
-            authorFirstName:'Sid',
-            authorLastName:'Grover',
+            authorFirstName:localStorage.getItem('firstName'),
+            authorLastName:localStorage.getItem('lastName'),
             authorId:'123',
             createdAt:Date.now()
 

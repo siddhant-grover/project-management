@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {NavLink} from 'react-router-dom'
 import "./signedInLinks.css"
 import {connect} from 'react-redux'
-import {logout,getInitials} from '../redux/actions/authActions'
+import {logout,getCurrentUserData} from '../redux/actions/authActions'
 
 
 function SignedInLinks(props){
@@ -11,7 +11,7 @@ function SignedInLinks(props){
     
         console.log('props.getInitials()') 
     
-           props.getInitials().then((res)=>{console.log(res);setState(localStorage.getItem("initials"))})
+           props.getCurrentUserData().then((res)=>{console.log(res);setState(localStorage.getItem("initials"))})
            //setState(localStorage.getItem("initials"))
     },[props])
   //todo 
@@ -34,7 +34,7 @@ const mapSateToProps=(state)=>{
 const mapDispatchToProps={ //object syntax , so that we can chain .then to the returned promise from getInitials thunk in authActions
 
         logout,
-        getInitials
+        getCurrentUserData
   
 }
 // const mapDispatchToProps=(dispatch)=>{
