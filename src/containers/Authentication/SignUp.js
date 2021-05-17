@@ -18,7 +18,7 @@ function handelChange(event){
     return (
         <>
        {!(props.profileLoaded)?<form className="formC">
-           <div>Sign Up</div>
+           <div><b>Sign Up</b></div>
             <span><label htmlFor="email">Email</label><input type="email" id="email" onChange={handelChange} /></span>
             <span><label htmlFor="password">Password</label><input type="password" id="password" onChange={handelChange}/></span>
             <span><label htmlFor="firstName">First Name </label><input type="text" id="firstName"onChange={handelChange} /></span>
