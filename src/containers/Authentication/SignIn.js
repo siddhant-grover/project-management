@@ -22,7 +22,7 @@ function SignIn(props) {
 
         <>
         {(props.profileLoaded)?<Redirect to="/"/>:<form className="formC">
-           <div>Sign In</div>
+           <div><b>Sign In</b></div>
             <span><label htmlFor="email">Email</label><input type="email" id="email" onChange={handelChange}/></span>
             <span><label htmlFor="password">Password</label><input type="password" id="password" onChange={handelChange}/></span>
             <button onClick={(e)=>{ e.preventDefault(); props.signIn(state);}}>Submit</button>
