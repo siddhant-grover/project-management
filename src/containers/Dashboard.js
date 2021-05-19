@@ -19,6 +19,9 @@ let ref = useRef()
         
     },[])
    
+    if(props.profileLoaded===null){
+        return(<></>)
+    }
     return(
         <>
       

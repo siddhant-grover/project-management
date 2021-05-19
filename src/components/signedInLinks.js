@@ -14,7 +14,7 @@ function SignedInLinks(props){
            props.getCurrentUserData().then((res)=>{console.log(res);setState(localStorage.getItem("initials"))})
            //setState(localStorage.getItem("initials"))
     },[props])
-  //todo 
+  
     
    
 return(
