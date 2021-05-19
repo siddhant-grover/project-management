@@ -18,7 +18,7 @@ useEffect(()=>{
     if(ref.current.length===0){
     ref.current.load()
     }
-   console.log(ref.current.length)
+   console.log(ref.current.length+"isthe")
 },[])
 function handelOnChange(e){
     setState((prev)=>{
