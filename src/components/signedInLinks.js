@@ -19,7 +19,7 @@ function SignedInLinks(props){
    
 return(
             <ul>
-            <li><NavLink to='/create' className="link">New Project</NavLink></li>
+            <li><NavLink to='/create' className="link">Add New Project</NavLink></li>
             <li><NavLink to='/' className="link" onClick={()=>{props.logout()}}>Log Out</NavLink></li>
             {(state)?<li style={{fontSize:'30px'}}>{state}</li>:<li style={{fontSize:'30px'}}></li>}
         </ul>

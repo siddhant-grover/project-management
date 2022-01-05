@@ -50,7 +50,6 @@ function handelOnChange(e){
 
                 }}>Create</button>
             </form>
-            <p>{JSON.stringify(props.projects)}</p>
             
         </div>
     );

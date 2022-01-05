@@ -22,7 +22,7 @@ function ProjectDetails(props) {
     if(!(Object.keys(item).length===0)){
         return(
                 <div>
-                    <h2>{item.title} id:{id.current}</h2>
+                    <h1>About Project</h1>
                     <p>Author:{item.authorLastName} {item.authorFirstName}</p>
                     <p>{item.content}</p>
                     <p>{moment(new Date(item.createdAt)).calendar()}</p>
